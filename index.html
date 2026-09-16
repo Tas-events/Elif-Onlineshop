@@ -3,502 +3,411 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Elif Onlineshop | Premium Store</title>
+    <title>Elif Onlineshop | Mode, Technik & Wohnen</title>
     <style>
         :root {
-            --primary: #2563eb;
-            --primary-hover: #1d4ed8;
-            --dark: #0f172a;
-            --light: #f8fafc;
-            --accent: #ef4444;
+            --otto-red: #d0021b;
+            --otto-dark: #222222;
+            --otto-bg: #f5f5f5;
+            --otto-gray: #666666;
         }
 
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
 
         body {
-            background-color: var(--light);
-            color: var(--dark);
+            background-color: var(--otto-bg);
+            color: var(--otto-dark);
         }
 
-        /* HEADER & NAVIGATION */
+        /* TOP PROMO BAR */
+        .top-bar {
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 0.4rem;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* HEADER */
         header {
-            background-color: #ffffff;
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .header-container {
-            max-width: 1200px;
+        .header-main {
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 1rem 1.5rem;
+            padding: 1rem;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 1.5rem;
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--dark);
+            font-size: 2rem;
+            font-weight: 900;
+            color: var(--otto-red);
             text-decoration: none;
+            letter-spacing: -1px;
         }
 
-        .logo span {
-            color: var(--primary);
+        .search-container {
+            flex-grow: 1;
+            max-width: 600px;
+            display: flex;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid var(--otto-dark);
+            border-right: none;
+            border-radius: 4px 0 0 4px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-container button {
+            background: var(--otto-dark);
+            color: white;
+            border: none;
+            padding: 0 1.5rem;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
         }
 
         .cart-btn {
-            background: var(--dark);
+            background: var(--otto-red);
             color: white;
             border: none;
             padding: 0.6rem 1.2rem;
-            border-radius: 99px;
-            font-weight: 600;
+            border-radius: 4px;
+            font-weight: bold;
             cursor: pointer;
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            transition: transform 0.2s;
         }
 
-        .cart-btn:hover {
-            transform: scale(1.05);
+        /* NAVIGATION BAR */
+        nav {
+            background: #fff;
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .cart-count-badge {
-            background: var(--accent);
-            color: white;
-            border-radius: 50%;
-            padding: 0.1rem 0.5rem;
-            font-size: 0.8rem;
+        .nav-links {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            list-style: none;
+            padding: 0 1rem;
+            overflow-x: auto;
         }
 
-        /* HERO BANNER */
+        .nav-links li a {
+            display: block;
+            padding: 0.8rem 1rem;
+            color: var(--otto-dark);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .nav-links li a:hover {
+            color: var(--otto-red);
+        }
+
+        /* HERO BANNER (OTTO-STYLE) */
         .hero {
-            background: linear-gradient(135deg, #1e293b, #0f172a);
-            color: white;
-            text-align: center;
-            padding: 4rem 1rem;
+            max-width: 1280px;
+            margin: 1.5rem auto;
+            padding: 0 1rem;
         }
 
-        .hero h1 {
+        .hero-banner {
+            background: linear-gradient(90deg, #d0021b, #990013);
+            color: white;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hero-banner h1 {
             font-size: 2.5rem;
             margin-bottom: 0.5rem;
         }
 
-        .hero p {
-            color: #94a3b8;
-            font-size: 1.1rem;
-        }
-
-        /* FILTER & SEARCH */
-        .controls {
-            max-width: 1200px;
-            margin: 2rem auto 1rem;
-            padding: 0 1.5rem;
-            display: flex;
-            gap: 1rem;
-            justify-content: space-between;
-            flex-wrap: wrap;
-        }
-
-        .search-box {
-            padding: 0.6rem 1rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 8px;
-            width: 300px;
-            font-size: 1rem;
+        .hero-banner p {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
         }
 
         /* PRODUCT GRID */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
-            padding: 0 1.5rem;
+        .main-container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--otto-red);
+            padding-left: 0.5rem;
         }
 
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 1.5rem;
         }
 
         .product-card {
             background: white;
-            border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+            padding: 1rem;
+            position: relative;
             display: flex;
             flex-direction: column;
-            transition: box-shadow 0.2s;
+            justify-content: space-between;
         }
 
-        .product-card:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-        }
-
-        .product-info {
-            padding: 1.25rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .product-category {
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--otto-red);
+            color: white;
             font-size: 0.75rem;
-            text-transform: uppercase;
-            color: #64748b;
-            font-weight: 700;
+            font-weight: bold;
+            padding: 0.2rem 0.5rem;
+            border-radius: 3px;
         }
 
-        .product-title {
-            font-size: 1.1rem;
-            margin: 0.25rem 0 0.5rem;
-        }
-
-        .product-price {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--dark);
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: contain;
             margin-bottom: 1rem;
         }
 
+        .product-title {
+            font-size: 0.95rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .price-container {
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .old-price {
+            text-decoration: line-through;
+            color: var(--otto-gray);
+            font-size: 0.85rem;
+            margin-right: 0.5rem;
+        }
+
+        .current-price {
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--otto-red);
+        }
+
         .btn-add {
-            margin-top: auto;
-            width: 100%;
-            padding: 0.75rem;
-            background-color: var(--primary);
+            background: var(--otto-dark);
             color: white;
             border: none;
-            border-radius: 8px;
-            font-weight: 600;
+            padding: 0.7rem;
+            width: 100%;
+            border-radius: 4px;
+            font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s;
         }
 
         .btn-add:hover {
-            background-color: var(--primary-hover);
+            background: #000;
         }
 
-        /* MODAL / POPUP (WARENKORB & KASSE) */
-        .modal-overlay {
+        /* MODAL (WARENKORB & KASSE) */
+        .modal {
+            display: none;
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            display: none;
+            background: rgba(0,0,0,0.6);
+            z-index: 1000;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
         }
 
-        .modal-content {
+        .modal-body {
             background: white;
-            width: 90%;
-            max-width: 550px;
-            border-radius: 12px;
             padding: 2rem;
-            max-height: 85vh;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            max-height: 80vh;
             overflow-y: auto;
             position: relative;
         }
 
-        .close-btn {
+        .close {
             position: absolute;
             top: 1rem;
             right: 1rem;
             font-size: 1.5rem;
-            background: none;
-            border: none;
             cursor: pointer;
-        }
-
-        .cart-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-
-        .cart-item-title {
-            font-weight: 600;
-        }
-
-        .qty-btn {
-            background: #e2e8f0;
-            border: none;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        .cart-total {
-            margin-top: 1.5rem;
-            font-size: 1.25rem;
-            font-weight: 800;
-            text-align: right;
-        }
-
-        .checkout-btn {
-            width: 100%;
-            margin-top: 1rem;
-            padding: 0.8rem;
-            background: #16a34a;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.3rem;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 0.6rem;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
         }
 
         footer {
-            text-align: center;
+            background: white;
+            border-top: 1px solid #e5e5e5;
             padding: 2rem;
-            background: var(--dark);
-            color: #94a3b8;
+            text-align: center;
+            margin-top: 4rem;
+            color: var(--otto-gray);
+            font-size: 0.85rem;
         }
     </style>
 </head>
 <body>
 
-    <!-- HEADER -->
+    <div class="top-bar">🚚 Gratis Versand ab 50 € Bestellwert! | Risikofrei auf Rechnung bestellen</div>
+
     <header>
-        <div class="header-container">
-            <a href="#" class="logo">ELIF<span>STORE</span></a>
-            <button class="cart-btn" onclick="toggleCart()">
-                🛒 Warenkorb <span class="cart-count-badge" id="cart-badge">0</span>
-            </button>
+        <div class="header-main">
+            <a href="#" class="logo">elif.de</a>
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="Suchbegriff, Marke oder Artikelnummer eingeben..." onkeyup="search()">
+                <button>Suchen</button>
+            </div>
+            <div class="header-actions">
+                <button class="cart-btn" onclick="toggleCart()">🛒 Warenkorb (<span id="cartCount">0</span>)</button>
+            </div>
         </div>
     </header>
 
-    <!-- HERO -->
-    <section class="hero">
-        <h1>Exklusive Trends & Deals</h1>
-        <p>Entdecke hochwertige Produkte zum besten Preis</p>
-    </section>
+    <nav>
+        <ul class="nav-links">
+            <li><a href="#">Damen</a></li>
+            <li><a href="#">Herren</a></li>
+            <li><a href="#">Technik</a></li>
+            <li><a href="#">Wohnen</a></li>
+            <li><a href="#">Sport</a></li>
+            <li><a href="#" style="color: var(--otto-red);">% SALE %</a></li>
+        </ul>
+    </nav>
 
-    <!-- CONTROL SUITE -->
-    <div class="controls">
-        <input type="text" id="search-input" class="search-box" placeholder="Produkt suchen..." onkeyup="filterProducts()">
+    <div class="hero">
+        <div class="hero-banner">
+            <h1>DIE BESTEN DEALS DES TAGES</h1>
+            <p>Spare bis zu 40% auf Elektronik, Mode und Accessoires.</p>
+        </div>
     </div>
 
-    <!-- PRODUKTE GRID -->
-    <div class="container">
-        <div class="product-grid" id="product-list">
-            <!-- Produkte werden per JS dynamisch geladen -->
-        </div>
+    <div class="main-container">
+        <h2 class="section-title">Unsere Empfehlungen für dich</h2>
+        <div class="product-grid" id="productList"></div>
     </div>
 
     <!-- WARENKORB MODAL -->
-    <div class="modal-overlay" id="cart-modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="toggleCart()">✕</button>
-            <h2>Ihr Warenkorb</h2>
-            <div id="cart-items-container">
-                <p style="margin-top: 1rem; color: #64748b;">Ihr Warenkorb ist noch leer.</p>
-            </div>
-            <div class="cart-total">Gesamt: <span id="cart-total-price">0,00 €</span></div>
-            <button class="checkout-btn" onclick="openCheckout()" id="btn-to-checkout" style="display:none;">Zur Kasse gehen</button>
+    <div class="modal" id="cartModal">
+        <div class="modal-body">
+            <span class="close" onclick="toggleCart()">✕</span>
+            <h2>Dein Warenkorb</h2>
+            <div id="cartItems" style="margin: 1.5rem 0;"></div>
+            <h3>Gesamtsumme: <span id="totalPrice">0,00 €</span></h3>
+            <button class="btn-add" style="background: var(--otto-red); margin-top: 1rem;" onclick="alert('Bestellvorgang wird gestartet!')">Zur Kasse gehen</button>
         </div>
     </div>
 
-    <!-- KASSE / CHECKOUT MODAL -->
-    <div class="modal-overlay" id="checkout-modal">
-        <div class="modal-content">
-            <button class="close-btn" onclick="closeCheckout()">✕</button>
-            <h2>Kasse / Bestellung abschließen</h2>
-            <form onsubmit="finishOrder(event)" style="margin-top: 1rem;">
-                <div class="form-group">
-                    <label>Vollständiger Name</label>
-                    <input type="text" required placeholder="Max Mustermann">
-                </div>
-                <div class="form-group">
-                    <label>E-Mail Adresse</label>
-                    <input type="email" required placeholder="max@beispiel.de">
-                </div>
-                <div class="form-group">
-                    <label>Lieferadresse</label>
-                    <input type="text" required placeholder="Musterstraße 12, 12345 Berlin">
-                </div>
-                <div class="form-group">
-                    <label>Zahlungsart</label>
-                    <select required>
-                        <option value="paypal">PayPal</option>
-                        <option value="credit">Kreditkarte (Visa / Mastercard)</option>
-                        <option value="klarna">Klarna / Rechnungskauf</option>
-                    </select>
-                </div>
-                <div class="cart-total" style="text-align: left; margin-bottom: 1rem;">
-                    Zu zahlen: <span id="checkout-total-price">0,00 €</span>
-                </div>
-                <button type="submit" class="checkout-btn">Jetzt kostenpflichtig bestellen</button>
-            </form>
-        </div>
-    </div>
-
-    <!-- FOOTER -->
     <footer>
-        <p>&copy; 2026 ELIF STORE | Impressum | Datenschutz | AGB</p>
+        <p>&copy; 2026 elif.de - Nachbau zu Demonstrationszwecken | Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- JAVASCRIPT SHOP-LOGIK -->
     <script>
         const products = [
-            { id: 1, name: "Elegante Armbanduhr", category: "Accessoires", price: 49.99, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" },
-            { id: 2, name: "Wireless Headphones", category: "Elektronik", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" },
-            { id: 3, name: "Sport Sneaker", category: "Schuhe", price: 89.99, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-            { id: 4, name: "Designer Sonnenbrille", category: "Accessoires", price: 29.99, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500" },
-            { id: 5, name: "Leder Rucksack", category: "Taschen", price: 64.99, image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500" },
-            { id: 6, name: "Smartwatch Series X", category: "Elektronik", price: 129.99, image: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" }
+            { id: 1, name: "Apple AirPods Max Bluetooth Headphones", oldPrice: "579,00 €", price: 479.99, badge: "REDUZIERT", img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" },
+            { id: 2, name: "Premium Herren Armbanduhr Chronograph", oldPrice: "129,00 €", price: 89.99, badge: "TOP-DEAL", img: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" },
+            { id: 3, name: "Nike Sport Sneaker Air Runner", oldPrice: "119,99 €", price: 79.99, badge: "SALE", img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
+            { id: 4, name: "Smartwatch Series Pro mit Fitness-Tracker", oldPrice: "199,00 €", price: 139.99, badge: "NEU", img: "https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=500" }
         ];
 
         let cart = [];
 
-        // Produkte rendern
-        function renderProducts(items) {
-            const list = document.getElementById('product-list');
-            list.innerHTML = '';
-            items.forEach(product => {
-                list.innerHTML += `
-                    <div class="product-card">
-                        <img src="${product.image}" alt="${product.name}" class="product-image">
-                        <div class="product-info">
-                            <span class="product-category">${product.category}</span>
-                            <h3 class="product-title">${product.name}</h3>
-                            <div class="product-price">${product.price.toFixed(2).replace('.', ',')} €</div>
-                            <button class="btn-add" onclick="addToCart(${product.id})">In den Warenkorb</button>
-                        </div>
+        function displayProducts(items) {
+            const list = document.getElementById('productList');
+            list.innerHTML = items.map(p => `
+                <div class="product-card">
+                    <span class="badge">${p.badge}</span>
+                    <img src="${p.img}" class="product-img" alt="${p.name}">
+                    <div class="product-title">${p.name}</div>
+                    <div class="price-container">
+                        <span class="old-price">${p.oldPrice}</span>
+                        <span class="current-price">${p.price.toFixed(2).replace('.', ',')} €</span>
                     </div>
-                `;
-            });
+                    <button class="btn-add" onclick="addToCart(${p.id})">In den Warenkorb</button>
+                </div>
+            `).join('');
         }
 
-        // Suche
-        function filterProducts() {
-            const query = document.getElementById('search-input').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
-            renderProducts(filtered);
-        }
-
-        // Warenkorb verwalten
         function addToCart(id) {
-            const product = products.find(p => p.id === id);
-            const exist = cart.find(item => item.id === id);
-            if (exist) {
-                exist.qty++;
+            const prod = products.find(p => p.id === id);
+            cart.push(prod);
+            document.getElementById('cartCount').innerText = cart.length;
+            alert(prod.name + ' wurde zum Warenkorb hinzugefügt!');
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+            
+            const cartItems = document.getElementById('cartItems');
+            const totalEl = document.getElementById('totalPrice');
+            
+            if(cart.length === 0) {
+                cartItems.innerHTML = "<p>Dein Warenkorb ist leer.</p>";
+                totalEl.innerText = "0,00 €";
             } else {
-                cart.push({ ...product, qty: 1 });
-            }
-            updateCartUI();
-            toggleCart(true); // Öffne Warenkorb zur Bestätigung
-        }
-
-        function changeQty(id, delta) {
-            const item = cart.find(i => i.id === id);
-            if (item) {
-                item.qty += delta;
-                if (item.qty <= 0) {
-                    cart = cart.filter(i => i.id !== id);
-                }
-            }
-            updateCartUI();
-        }
-
-        function updateCartUI() {
-            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
-            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-            document.getElementById('cart-badge').innerText = totalQty;
-            document.getElementById('cart-total-price').innerText = totalPrice.toFixed(2).replace('.', ',') + ' €';
-            document.getElementById('checkout-total-price').innerText = totalPrice.toFixed(2).replace('.', ',') + ' €';
-
-            const container = document.getElementById('cart-items-container');
-            const btnCheckout = document.getElementById('btn-to-checkout');
-
-            if (cart.length === 0) {
-                container.innerHTML = '<p style="margin-top: 1rem; color: #64748b;">Ihr Warenkorb ist noch leer.</p>';
-                btnCheckout.style.display = 'none';
-            } else {
-                btnCheckout.style.display = 'block';
-                container.innerHTML = cart.map(item => `
-                    <div class="cart-item">
-                        <div>
-                            <div class="cart-item-title">${item.name}</div>
-                            <div style="font-size: 0.85rem; color: #64748b;">${item.price.toFixed(2).replace('.', ',')} €</div>
-                        </div>
-                        <div>
-                            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                            <span style="margin: 0 0.5rem; font-weight: bold;">${item.qty}</span>
-                            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
-                        </div>
-                    </div>
-                `).join('');
+                cartItems.innerHTML = cart.map(i => `<p style="padding: 0.5rem 0; border-bottom: 1px solid #eee;">${i.name} - <b>${i.price.toFixed(2).replace('.', ',')} €</b></p>`).join('');
+                const sum = cart.reduce((a, b) => a + b.price, 0);
+                totalEl.innerText = sum.toFixed(2).replace('.', ',') + " €";
             }
         }
 
-        function toggleCart(forceOpen = false) {
-            const modal = document.getElementById('cart-modal');
-            if (forceOpen) {
-                modal.style.display = 'flex';
-            } else {
-                modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
-            }
+        function search() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(q));
+            displayProducts(filtered);
         }
 
-        function openCheckout() {
-            toggleCart(false);
-            document.getElementById('checkout-modal').style.display = 'flex';
-        }
-
-        function closeCheckout() {
-            document.getElementById('checkout-modal').style.display = 'none';
-        }
-
-        function finishOrder(e) {
-            e.preventDefault();
-            alert('Vielen Dank für deine Bestellung! Deine Daten wurden erfolgreich übermittelt.');
-            cart = [];
-            updateCartUI();
-            closeCheckout();
-        }
-
-        // Start
-        renderProducts(products);
+        displayProducts(products);
     </script>
 </body>
 </html>
