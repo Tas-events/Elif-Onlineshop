@@ -44,7 +44,7 @@
             background: #ffffff;
             position: sticky;
             top: 0;
-            z-index: 100;
+            z-index: 1000;
             border-bottom: 1px solid var(--border);
             box-shadow: 0 4px 20px rgba(0,0,0,0.03);
         }
@@ -120,6 +120,8 @@
         .category-nav {
             background: #ffffff;
             border-bottom: 1px solid var(--border);
+            position: relative;
+            z-index: 900;
         }
 
         .category-nav-container {
@@ -127,69 +129,77 @@
             margin: 0 auto;
             padding: 0 1.5rem;
             display: flex;
-            gap: 1.5rem;
-            overflow-x: auto;
+            gap: 2rem;
+            flex-wrap: wrap;
         }
 
         .nav-item {
             position: relative;
             padding: 1rem 0;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--dark);
             cursor: pointer;
-            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
         }
 
         .nav-item:hover {
             color: var(--primary);
         }
 
+        /* DROPDOWN MENU */
         .dropdown-menu {
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background: #ffffff;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
             border-radius: 12px;
             border: 1px solid var(--border);
-            min-width: 240px;
-            padding: 0.5rem 0;
-            z-index: 200;
+            min-width: 280px;
+            padding: 1rem;
+            z-index: 1000;
         }
 
         .nav-item:hover .dropdown-menu {
             display: block;
         }
 
+        .dropdown-section {
+            margin-bottom: 0.8rem;
+        }
+
+        .dropdown-section:last-child {
+            margin-bottom: 0;
+        }
+
         .dropdown-header {
-            padding: 0.5rem 1.2rem 0.2rem;
             font-size: 0.75rem;
             font-weight: 800;
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 0.5px;
+            margin-bottom: 0.4rem;
+            padding-left: 0.4rem;
         }
 
         .dropdown-item {
-            padding: 0.5rem 1.2rem;
+            padding: 0.4rem 0.6rem;
             color: var(--text-main);
-            font-weight: 500;
-            font-size: 0.85rem;
+            font-weight: 600;
+            font-size: 0.88rem;
             display: block;
             text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.2s;
         }
 
         .dropdown-item:hover {
             background: #f1f5f9;
             color: var(--primary);
-        }
-
-        .dropdown-divider {
-            height: 1px;
-            background: var(--border);
-            margin: 0.4rem 0;
         }
 
         /* HERO & BANNER */
@@ -323,7 +333,7 @@
             display: none;
             justify-content: center;
             align-items: center;
-            z-index: 1000;
+            z-index: 2000;
         }
 
         .modal-box {
@@ -446,92 +456,102 @@
         </div>
     </header>
 
-    <!-- MEGA KATEGORIEN NAVIGATION LEISTE -->
+    <!-- MEGA NAVIGATION MIT VOLLSTÄNDIGEN UNTERKATEGORIEN -->
     <nav class="category-nav">
         <div class="category-nav-container">
+            
             <div class="nav-item" onclick="resetFilter()">🔥 Topseller</div>
 
-            <!-- WOHNEN & EINRICHTEN -->
+            <!-- 1. WOHNEN & EINRICHTEN -->
             <div class="nav-item">
                 🛋️ Wohnen & Einrichten ▾
                 <div class="dropdown-menu">
-                    <div class="dropdown-header">Heimtextilien</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Heimtextilien')">Heimtextilien entdecken</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Gardinen')">Gardinen</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Rollos')">Rollos</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Matratzen')">Matratzen</a>
-                    
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Möbel</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Möbel')">Möbel entdecken</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Wohnzimmer')">Wohnzimmer</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Schlafzimmer')">Schlafzimmer</a>
-                    
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Baumarkt</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Baumarkt')">Baumarkt entdecken</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Heizen')">Heizen</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Garten')">Garten & Balkon</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Klima')">Klima</a>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Heimtextilien</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Heimtextilien entdecken')">Heimtextilien entdecken</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Gardinen')">Gardinen</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Rollos')">Rollos</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Matratzen')">Matratzen</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Möbel</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Möbel entdecken')">Möbel entdecken</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Wohnzimmer')">Wohnzimmer</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Schlafzimmer')">Schlafzimmer</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Küche Möbel')">Küche</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Baumarkt</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Baumarkt entdecken')">Baumarkt entdecken</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Heizen')">Heizen</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Garten & Balkon')">Garten & Balkon</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Klima')">Klima</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- KÜCHE & HAUSHALT -->
+            <!-- 2. KÜCHE & HAUSHALT -->
             <div class="nav-item">
                 🍳 Küche & Haushalt ▾
                 <div class="dropdown-menu">
-                    <div class="dropdown-header">Haushalt</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Haushalt')">Haushalt entdecken</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Waschmaschinen')">Waschmaschinen</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Trockner')">Trockner</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Wäschepflege')">Wäschepflege</a>
-                    
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Küche</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küche')">Küche entdecken</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küchengeräte')">Küchengeräte</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küchen individuell planen')">Küchen individuell planen</a>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Haushalt</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Haushalt entdecken')">Haushalt entdecken</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Waschmaschinen')">Waschmaschinen</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Trockner')">Trockner</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Wäschepflege')">Wäschepflege</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Küche</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Küche entdecken')">Küche entdecken</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Küchen individuell planen')">Küchen individuell planen</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- MODE -->
+            <!-- 3. MODE -->
             <div class="nav-item">
                 👗 Mode ▾
                 <div class="dropdown-menu">
-                    <div class="dropdown-header">Damenmode</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenbekleidung')">Bekleidung</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenwäsche')">Wäsche</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenbademode')">Bademode</a>
-
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Herrenmode</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenbekleidung')">Bekleidung</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenwäsche')">Wäsche</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenbademode')">Bademode</a>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Damenmode</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Damen Bekleidung')">Bekleidung</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Damen Wäsche')">Wäsche</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Damen Bademode')">Bademode</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Herrenmode</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Herren Bekleidung')">Bekleidung</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Herren Wäsche')">Wäsche</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Herren Bademode')">Bademode</a>
+                    </div>
                 </div>
             </div>
 
-            <!-- BABY & KIND -->
+            <!-- 4. BABY & KIND -->
             <div class="nav-item">
                 👶 Baby & Kind ▾
                 <div class="dropdown-menu">
-                    <div class="dropdown-header">Kategorien</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Mädchenmode')">Mädchenmode</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Jungenmode')">Jungenmode</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Babymode')">Babymode</a>
-                    
-                    <div class="dropdown-divider"></div>
-                    <div class="dropdown-header">Kleidung</div>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Festliche Kleider')">Festliche Kleider</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Langarmkleider')">Langarmkleider</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Sommerkleider')">Sommerkleider</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Pullover')">Pullover</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Hosen')">Hosen</a>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Kategorien</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Mädchenmode')">Mädchenmode</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Jungenmode')">Jungenmode</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Babymode')">Babymode</a>
+                    </div>
+                    <div class="dropdown-section">
+                        <div class="dropdown-header">Bekleidung</div>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Festliche Kleider')">Festliche Kleider</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Langarmkleider')">Langarmkleider</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Sommerkleider')">Sommerkleider</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Pullover')">Pullover</a>
+                        <a href="#" class="dropdown-item" onclick="filterByCategory('Hosen')">Hosen</a>
+                    </div>
                 </div>
             </div>
 
             <div class="nav-item" onclick="filterByCategory('Multimedia')">💻 Multimedia</div>
             <div class="nav-item" onclick="filterByCategory('Sport')">⚽ Sport</div>
+
         </div>
     </nav>
 
@@ -542,7 +562,7 @@
         </div>
     </div>
 
-    <!-- UNSERE TOP MARKEN -->
+    <!-- TOP MARKEN -->
     <div class="brands-section">
         <div class="brands-title">Unsere Top-Marken</div>
         <div class="brands-grid">
@@ -639,10 +659,9 @@
 
             // Küche & Haushalt
             { id: 8, name: "Frontlader Waschmaschine A+++", category: "Waschmaschinen", price: 429.99, image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500" },
-            { id: 9, name: "Moderne Heißluftfritteuse 5L", category: "Küchengeräte", price: 89.99, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=500" },
 
             // Multimedia
-            { id: 10, name: "Wireless Bluetooth Kopfhörer", category: "Multimedia", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" }
+            { id: 9, name: "Wireless Bluetooth Kopfhörer", category: "Multimedia", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" }
         ];
 
         let cart = [];
@@ -666,7 +685,7 @@
 
         function filterByCategory(categoryName) {
             document.getElementById('currentCategoryTitle').innerText = categoryName;
-            const filtered = products.filter(p => p.category.toLowerCase() === categoryName.toLowerCase());
+            const filtered = products.filter(p => p.category.toLowerCase().includes(categoryName.toLowerCase()));
             renderProducts(filtered.length ? filtered : products);
         }
 
