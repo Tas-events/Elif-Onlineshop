@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elif Onlineshop</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background-color: #f4f6f8;
+            color: #333;
+        }
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            color: #ff6b6b;
+        }
+        .cart-status {
+            background: #ff6b6b;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #1a1a1a, #2c3e50);
+            color: white;
+        }
+        .hero h2 {
+            font-size: 2.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .product-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+        .product-info {
+            padding: 1.5rem;
+        }
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        .product-price {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .btn-add {
+            width: 100%;
+            padding: 0.8rem;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .btn-add:hover {
+            background-color: #ee5253;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            background-color: #1a1a1a;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Elif Onlineshop</h1>
+        <div class="cart-status">🛒 Warenkorb: <span id="cart-count">0</span></div>
+    </header>
+
+    <section class="hero">
+        <h2>Exklusive Angebote & Trends</h2>
+        <p>Entdecke beste Qualität zu Top-Preisen</p>
+    </section>
+
+    <div class="container">
+        <div class="product-grid">
+            
+            <!-- Produkt 1 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" alt="Armbanduhr" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Elegante Armbanduhr</h3>
+                    <p class="product-price">49,99 €</p>
+                    <button class="btn-add" onclick="addToCart()">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <!-- Produkt 2 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" alt="Kopfhörer" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Wireless Kopfhörer</h3>
+                    <p class="product-price">79,99 €</p>
+                    <button class="btn-add" onclick="addToCart()">In den Warenkorb</button>
+                </div>
+            </div>
+
+            <!-- Produkt 3 -->
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" alt="Sneaker" class="product-image">
+                <div class="product-info">
+                    <h3 class="product-title">Sport Sneaker</h3>
+                    <p class="product-price">89,99 €</p>
+                    <button class="btn-add" onclick="addToCart()">In den Warenkorb</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Elif Onlineshop. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <script>
+        let count = 0;
+        function addToCart() {
+            count++;
+            document.getElementById('cart-count').innerText = count;
+            alert('Produkt wurde zum Warenkorb hinzugefügt!');
+        }
+    </script>
+
+</body>
+</html>
