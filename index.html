@@ -29,6 +29,7 @@
             color: var(--text-main);
         }
 
+        /* ANNOUNCEMENT BAR */
         .announcement-bar {
             background: var(--dark);
             color: #fff;
@@ -38,6 +39,7 @@
             font-weight: 600;
         }
 
+        /* HEADER & NAVIGATION */
         header {
             background: #ffffff;
             position: sticky;
@@ -50,7 +52,7 @@
         .header-container {
             max-width: 1280px;
             margin: 0 auto;
-            padding: 1.2rem 1.5rem;
+            padding: 1rem 1.5rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -76,7 +78,7 @@
 
         .search-box {
             flex-grow: 1;
-            max-width: 500px;
+            max-width: 450px;
         }
 
         .search-box input {
@@ -114,6 +116,68 @@
             font-size: 0.75rem;
         }
 
+        /* CATEGORY NAVIGATION LEISTE */
+        .category-nav {
+            background: #ffffff;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .category-nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            gap: 1.5rem;
+            overflow-x: auto;
+        }
+
+        .nav-item {
+            position: relative;
+            padding: 1rem 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: var(--dark);
+            cursor: pointer;
+            white-space: nowrap;
+        }
+
+        .nav-item:hover {
+            color: var(--primary);
+        }
+
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            min-width: 220px;
+            padding: 0.5rem 0;
+            z-index: 200;
+        }
+
+        .nav-item:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-item {
+            padding: 0.6rem 1.2rem;
+            color: var(--text-main);
+            font-weight: 500;
+            font-size: 0.85rem;
+            display: block;
+            text-decoration: none;
+        }
+
+        .dropdown-item:hover {
+            background: #f1f5f9;
+            color: var(--primary);
+        }
+
+        /* HERO & BANNER */
         .hero {
             max-width: 1280px;
             margin: 2rem auto;
@@ -127,17 +191,55 @@
             color: white;
         }
 
+        /* BRAND SECTION (TOP MARKEN) */
+        .brands-section {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .brands-title {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .brands-grid {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .brand-chip {
+            background: white;
+            border: 1px solid var(--border);
+            padding: 0.75rem 1.5rem;
+            border-radius: 12px;
+            font-weight: 700;
+            color: var(--dark);
+            font-size: 0.9rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        /* MAIN PRODUCTS GRID */
         .main-container {
             max-width: 1280px;
             margin: 0 auto 5rem;
             padding: 0 1.5rem;
         }
 
+        .section-header-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
         .product-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
             gap: 2rem;
-            margin-top: 1.5rem;
         }
 
         .product-card {
@@ -147,6 +249,11 @@
             overflow: hidden;
             display: flex;
             flex-direction: column;
+            transition: transform 0.2s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-4px);
         }
 
         .image-wrapper {
@@ -167,6 +274,14 @@
             flex-grow: 1;
         }
 
+        .category-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+        }
+
         .btn-add {
             width: 100%;
             padding: 0.8rem;
@@ -184,7 +299,7 @@
             color: white;
         }
 
-        /* MODALS */
+        /* MODALS (WARENKORB & KASSE) */
         .modal-backdrop {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -217,26 +332,12 @@
             cursor: pointer;
         }
 
-        /* WARENKORB ITEMS & STEUERUNG */
         .cart-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 1rem 0;
             border-bottom: 1px solid var(--border);
-            gap: 0.5rem;
-        }
-
-        .cart-item-title {
-            font-weight: 700;
-            color: var(--dark);
-            font-size: 0.95rem;
-        }
-
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
         }
 
         .qty-btn {
@@ -247,9 +348,6 @@
             border-radius: 6px;
             font-weight: bold;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .delete-btn {
@@ -264,12 +362,7 @@
             margin-left: 0.5rem;
         }
 
-        .delete-btn:hover {
-            background: var(--accent-red);
-            color: white;
-        }
-
-        /* FORMULAR STYLES FÜR KASSE */
+        /* KASSE FORMULAR */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -300,24 +393,6 @@
             font-size: 0.9rem;
         }
 
-        .checkbox-group {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin: 1rem 0;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        .checkout-section-title {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--dark);
-            margin: 1.5rem 0 1rem;
-            padding-bottom: 0.3rem;
-            border-bottom: 2px solid var(--border);
-        }
-
         .checkout-btn {
             width: 100%;
             padding: 1rem;
@@ -346,9 +421,9 @@
 
     <header>
         <div class="header-container">
-            <a href="#" class="logo">ELIF STORE <span class="badge-dot"></span></a>
+            <a href="#" class="logo" onclick="resetFilter()">ELIF STORE <span class="badge-dot"></span></a>
             <div class="search-box">
-                <input type="text" id="searchInput" placeholder="Produkte suchen..." onkeyup="filterProducts()">
+                <input type="text" id="searchInput" placeholder="Produkte oder Kategorien suchen..." onkeyup="filterProducts()">
             </div>
             <button class="cart-trigger" onclick="toggleCartModal()">
                 🛒 Warenkorb <span class="cart-count" id="cartBadge">0</span>
@@ -356,15 +431,68 @@
         </div>
     </header>
 
+    <!-- MEGA KATEGORIEN NAVIGATION LEISTE -->
+    <nav class="category-nav">
+        <div class="category-nav-container">
+            <div class="nav-item" onclick="resetFilter()">🔥 Topseller</div>
+            
+            <div class="nav-item">
+                👶 Baby & Kind ▾
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Festliche Kleider')">Festliche Kleider</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Langarmkleider')">Langarmkleider</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Sommerkleider')">Sommerkleider</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Pullover')">Pullover</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Hosen')">Hosen</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                🍳 Küche & Haushalt ▾
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küchengeräte')">Küchengeräte</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Geschirr')">Geschirr & Deko</a>
+                </div>
+            </div>
+
+            <div class="nav-item">
+                👗 Mode ▾
+                <div class="dropdown-menu">
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenbekleidung')">Damenbekleidung</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenbekleidung')">Herrenbekleidung</a>
+                </div>
+            </div>
+
+            <div class="nav-item" onclick="filterByCategory('Multimedia')">💻 Multimedia</div>
+            <div class="nav-item" onclick="filterByCategory('Sport')">⚽ Sport</div>
+            <div class="nav-item" onclick="filterByCategory('Wohnen')">🛋️ Wohnen & Einrichten</div>
+        </div>
+    </nav>
+
     <div class="hero">
         <div class="hero-card">
             <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Willkommen im Elif Store</h1>
-            <p style="color: #94a3b8;">Entdecke hochwertige Angebote & schnelle Lieferung.</p>
+            <p style="color: #94a3b8;">Ausgewählte Trends für Kinder, Küche, Mode & mehr.</p>
+        </div>
+    </div>
+
+    <!-- UNSERE TOP MARKEN -->
+    <div class="brands-section">
+        <div class="brands-title">Unsere Top-Marken</div>
+        <div class="brands-grid">
+            <div class="brand-chip">Elif Kids</div>
+            <div class="brand-chip">Nike</div>
+            <div class="brand-chip">Adidas</div>
+            <div class="brand-chip">Philips</div>
+            <div class="brand-chip">WMF</div>
+            <div class="brand-chip">Samsung</div>
         </div>
     </div>
 
     <div class="main-container">
-        <h2 style="font-size: 1.5rem; font-weight: 800; color: var(--dark);">Unsere Bestseller</h2>
+        <div class="section-header-flex">
+            <h2 id="currentCategoryTitle" style="font-size: 1.5rem; font-weight: 800; color: var(--dark);">Topseller & Highlights</h2>
+        </div>
         <div class="product-grid" id="productGrid"></div>
     </div>
 
@@ -382,81 +510,42 @@
         </div>
     </div>
 
-    <!-- PROFESSIONELLE KASSE / CHECKOUT MODAL -->
+    <!-- KASSE MODAL -->
     <div class="modal-backdrop" id="checkoutModal">
         <div class="modal-box">
             <button class="close-modal" onclick="closeCheckoutModal()">✕</button>
             <h2 style="margin-bottom: 0.5rem; color: var(--dark);">Kasse & Lieferadresse</h2>
             
             <form onsubmit="handleOrderSubmit(event)">
-                
-                <!-- PERSONENANGABEN & ADRESSE -->
-                <div class="checkout-section-title">1. Empfänger & Lieferadresse</div>
+                <h3 style="margin: 1rem 0 0.5rem;">1. Empfänger & Lieferadresse</h3>
                 <div class="form-grid">
-                    <div class="form-group">
-                        <label>Vorname *</label>
-                        <input type="text" required placeholder="Max">
-                    </div>
-                    <div class="form-group">
-                        <label>Nachname *</label>
-                        <input type="text" required placeholder="Mustermann">
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Unternehmen / Firma (Optional)</label>
-                        <input type="text" placeholder="Muster GmbH">
-                    </div>
-                    <div class="form-group full-width">
-                        <label>Straßenname & Hausnummer *</label>
-                        <input type="text" required placeholder="Musterstraße 12">
-                    </div>
-                    <div class="form-group">
-                        <label>Postleitzahl (PLZ) *</label>
-                        <input type="text" required placeholder="12345">
-                    </div>
-                    <div class="form-group">
-                        <label>Stadt / Gemeinde *</label>
-                        <input type="text" required placeholder="Berlin">
-                    </div>
-                    <div class="form-group">
-                        <label>E-Mail-Adresse *</label>
-                        <input type="email" required placeholder="max@beispiel.de">
-                    </div>
-                    <div class="form-group">
-                        <label>Telefonnummer *</label>
-                        <input type="tel" required placeholder="+49 170 1234567">
-                    </div>
+                    <div class="form-group"><label>Vorname *</label><input type="text" required placeholder="Max"></div>
+                    <div class="form-group"><label>Nachname *</label><input type="text" required placeholder="Mustermann"></div>
+                    <div class="form-group full-width"><label>Unternehmen (Optional)</label><input type="text"></div>
+                    <div class="form-group full-width"><label>Straße & Hausnummer *</label><input type="text" required placeholder="Musterstraße 12"></div>
+                    <div class="form-group"><label>Postleitzahl *</label><input type="text" required placeholder="12345"></div>
+                    <div class="form-group"><label>Stadt / Gemeinde *</label><input type="text" required placeholder="Berlin"></div>
+                    <div class="form-group"><label>E-Mail *</label><input type="email" required placeholder="max@beispiel.de"></div>
+                    <div class="form-group"><label>Telefonnummer *</label><input type="tel" required placeholder="+49 170 1234567"></div>
                 </div>
 
-                <div class="checkbox-group">
+                <div style="margin: 1rem 0; display:flex; gap:0.5rem; align-items:center;">
                     <input type="checkbox" id="sameAddress" checked>
-                    <label for="sameAddress">Lieferadresse als Rechnungsadresse verwenden</label>
+                    <label for="sameAddress" style="font-size: 0.9rem; font-weight: 600;">Lieferadresse als Rechnungsadresse verwenden</label>
                 </div>
 
-                <!-- VERSANDART -->
-                <div class="checkout-section-title">2. Versandart</div>
+                <h3 style="margin: 1rem 0 0.5rem;">2. Versand & Zahlung</h3>
                 <div class="form-group">
-                    <select required>
-                        <option value="standard">Standardversand (2-3 Werktage) - Kostenlos</option>
-                        <option value="express">Expressversand (1 Werktag) - 4,99 €</option>
-                    </select>
+                    <label>Versandart</label>
+                    <select required><option>Standardversand - Kostenlos</option><option>Expressversand - 4,99 €</option></select>
                 </div>
-
-                <!-- ZAHLUNGSINFORMATIONEN -->
-                <div class="checkout-section-title">3. Zahlungsinformationen</div>
                 <div class="form-group">
-                    <select required>
-                        <option value="paypal">PayPal</option>
-                        <option value="credit">Kreditkarte (Visa / Mastercard)</option>
-                        <option value="klarna">Klarna (Rechnungskauf)</option>
-                        <option value="sepa">SEPA-Lastschrift</option>
-                    </select>
+                    <label>Zahlungsinformation</label>
+                    <select required><option>PayPal</option><option>Kreditkarte</option><option>Klarna (Rechnung)</option><option>SEPA-Lastschrift</option></select>
                 </div>
 
-                <!-- SUMME & ABSCHLUSS -->
                 <div style="margin: 1.5rem 0; padding: 1rem; background: #f8fafc; border-radius: 8px; text-align: right;">
-                    <div style="font-size: 1.2rem; font-weight: 800; color: var(--dark);">
-                        Gesamtsumme inkl. MwSt.: <span id="checkoutTotalPrice">0,00 €</span>
-                    </div>
+                    <div style="font-size: 1.2rem; font-weight: 800;">Gesamtsumme: <span id="checkoutTotalPrice">0,00 €</span></div>
                 </div>
 
                 <button type="submit" class="checkout-btn">Jetzt kostenpflichtig bestellen</button>
@@ -470,10 +559,19 @@
 
     <script>
         const products = [
-            { id: 1, name: "Elegante Armbanduhr Chrono", price: 49.99, image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500" },
-            { id: 2, name: "Wireless ANC Headphones", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" },
-            { id: 3, name: "Sport Runner Sneaker Pro", price: 89.99, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=500" },
-            { id: 4, name: "Designer UV-Sonnenbrille", price: 29.99, image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500" }
+            // Baby & Kind
+            { id: 1, name: "Prinzessin Festliches Kleid Rosa", category: "Festliche Kleider", price: 39.99, image: "https://images.unsplash.com/photo-1518831959646-742c3a14ebf7?w=500" },
+            { id: 2, name: "Kinder Langarmkleid Blumenmuster", category: "Langarmkleider", price: 24.99, image: "https://images.unsplash.com/photo-1622290291468-a28f7a7dc6a8?w=500" },
+            { id: 3, name: "Leichtes Sommerkleid Gelb", category: "Sommerkleider", price: 19.99, image: "https://images.unsplash.com/photo-1596870230751-ebdfce98ec42?w=500" },
+            { id: 4, name: "Strick Pullover Kuschelig", category: "Pullover", price: 29.99, image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500" },
+            { id: 5, name: "Kinder Jeans Hose", category: "Hosen", price: 22.99, image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500" },
+            
+            // Küchen- & Wohnprodukte
+            { id: 6, name: "Moderne Heißluftfritteuse 5L", category: "Küchengeräte", price: 89.99, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=500" },
+            { id: 7, name: "Keramik Teller-Set 12-teilig", category: "Geschirr", price: 49.99, image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500" },
+
+            // Multimedia & Technik
+            { id: 8, name: "Wireless Bluetooth Kopfhörer", category: "Multimedia", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" }
         ];
 
         let cart = [];
@@ -486,7 +584,8 @@
                         <img src="${p.image}" alt="${p.name}" class="product-image">
                     </div>
                     <div class="product-info">
-                        <h3 style="font-size: 1.1rem; margin-bottom: 0.5rem;">${p.name}</h3>
+                        <span class="category-tag">${p.category}</span>
+                        <h3 style="font-size: 1.05rem; margin-bottom: 0.5rem; color: var(--dark);">${p.name}</h3>
                         <div style="font-size: 1.25rem; font-weight: 800; margin-bottom: 1rem;">${p.price.toFixed(2).replace('.', ',')} €</div>
                         <button class="btn-add" onclick="addToCart(${p.id})">In den Warenkorb</button>
                     </div>
@@ -494,14 +593,27 @@
             `).join('');
         }
 
+        function filterByCategory(categoryName) {
+            document.getElementById('currentCategoryTitle').innerText = categoryName;
+            const filtered = products.filter(p => p.category.toLowerCase() === categoryName.toLowerCase());
+            renderProducts(filtered.length ? filtered : products);
+        }
+
+        function resetFilter() {
+            document.getElementById('currentCategoryTitle').innerText = "Topseller & Highlights";
+            renderProducts(products);
+        }
+
+        function filterProducts() {
+            const query = document.getElementById('searchInput').value.toLowerCase();
+            const filtered = products.filter(p => p.name.toLowerCase().includes(query) || p.category.toLowerCase().includes(query));
+            renderProducts(filtered);
+        }
+
         function addToCart(id) {
             const product = products.find(p => p.id === id);
             const item = cart.find(i => i.id === id);
-            if (item) { 
-                item.qty++; 
-            } else { 
-                cart.push({ ...product, qty: 1 }); 
-            }
+            if (item) { item.qty++; } else { cart.push({ ...product, qty: 1 }); }
             updateCart();
             toggleCartModal(true);
         }
@@ -510,10 +622,7 @@
             const item = cart.find(i => i.id === id);
             if (item) {
                 item.qty += delta;
-                if (item.qty <= 0) {
-                    removeFromCart(id);
-                    return;
-                }
+                if (item.qty <= 0) removeFromCart(id);
             }
             updateCart();
         }
@@ -542,26 +651,18 @@
                 container.innerHTML = cart.map(item => `
                     <div class="cart-item">
                         <div>
-                            <div class="cart-item-title">${item.name}</div>
-                            <div style="font-size: 0.85rem; color: var(--text-muted);">${item.price.toFixed(2).replace('.', ',')} € pro Stück</div>
+                            <div style="font-weight:700;">${item.name}</div>
+                            <div style="font-size:0.85rem; color:var(--text-muted);">${item.price.toFixed(2).replace('.', ',')} € / Stk.</div>
                         </div>
-                        <div style="display: flex; align-items: center;">
-                            <div class="qty-controls">
-                                <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
-                                <span style="font-weight: 700; width: 24px; text-align: center;">${item.qty}</span>
-                                <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
-                            </div>
-                            <button class="delete-btn" onclick="removeFromCart(${item.id})" title="Artikel löschen">🗑️ Löschen</button>
+                        <div style="display:flex; align-items:center;">
+                            <button class="qty-btn" onclick="changeQty(${item.id}, -1)">-</button>
+                            <span style="font-weight:700; width:28px; text-align:center;">${item.qty}</span>
+                            <button class="qty-btn" onclick="changeQty(${item.id}, 1)">+</button>
+                            <button class="delete-btn" onclick="removeFromCart(${item.id})">🗑️</button>
                         </div>
                     </div>
                 `).join('');
             }
-        }
-
-        function filterProducts() {
-            const query = document.getElementById('searchInput').value.toLowerCase();
-            const filtered = products.filter(p => p.name.toLowerCase().includes(query));
-            renderProducts(filtered);
         }
 
         function toggleCartModal(forceOpen = false) {
