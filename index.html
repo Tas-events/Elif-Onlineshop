@@ -154,7 +154,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border-radius: 12px;
             border: 1px solid var(--border);
-            min-width: 220px;
+            min-width: 240px;
             padding: 0.5rem 0;
             z-index: 200;
         }
@@ -163,8 +163,17 @@
             display: block;
         }
 
+        .dropdown-header {
+            padding: 0.5rem 1.2rem 0.2rem;
+            font-size: 0.75rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .dropdown-item {
-            padding: 0.6rem 1.2rem;
+            padding: 0.5rem 1.2rem;
             color: var(--text-main);
             font-weight: 500;
             font-size: 0.85rem;
@@ -175,6 +184,12 @@
         .dropdown-item:hover {
             background: #f1f5f9;
             color: var(--primary);
+        }
+
+        .dropdown-divider {
+            height: 1px;
+            background: var(--border);
+            margin: 0.4rem 0;
         }
 
         /* HERO & BANNER */
@@ -191,7 +206,7 @@
             color: white;
         }
 
-        /* BRAND SECTION (TOP MARKEN) */
+        /* BRAND SECTION */
         .brands-section {
             max-width: 1280px;
             margin: 2rem auto;
@@ -299,7 +314,7 @@
             color: white;
         }
 
-        /* MODALS (WARENKORB & KASSE) */
+        /* MODALS */
         .modal-backdrop {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -362,7 +377,7 @@
             margin-left: 0.5rem;
         }
 
-        /* KASSE FORMULAR */
+        /* FORMULAR */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -435,10 +450,78 @@
     <nav class="category-nav">
         <div class="category-nav-container">
             <div class="nav-item" onclick="resetFilter()">🔥 Topseller</div>
-            
+
+            <!-- WOHNEN & EINRICHTEN -->
+            <div class="nav-item">
+                🛋️ Wohnen & Einrichten ▾
+                <div class="dropdown-menu">
+                    <div class="dropdown-header">Heimtextilien</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Heimtextilien')">Heimtextilien entdecken</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Gardinen')">Gardinen</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Rollos')">Rollos</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Matratzen')">Matratzen</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Möbel</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Möbel')">Möbel entdecken</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Wohnzimmer')">Wohnzimmer</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Schlafzimmer')">Schlafzimmer</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Baumarkt</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Baumarkt')">Baumarkt entdecken</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Heizen')">Heizen</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Garten')">Garten & Balkon</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Klima')">Klima</a>
+                </div>
+            </div>
+
+            <!-- KÜCHE & HAUSHALT -->
+            <div class="nav-item">
+                🍳 Küche & Haushalt ▾
+                <div class="dropdown-menu">
+                    <div class="dropdown-header">Haushalt</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Haushalt')">Haushalt entdecken</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Waschmaschinen')">Waschmaschinen</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Trockner')">Trockner</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Wäschepflege')">Wäschepflege</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Küche</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küche')">Küche entdecken</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küchengeräte')">Küchengeräte</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küchen individuell planen')">Küchen individuell planen</a>
+                </div>
+            </div>
+
+            <!-- MODE -->
+            <div class="nav-item">
+                👗 Mode ▾
+                <div class="dropdown-menu">
+                    <div class="dropdown-header">Damenmode</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenbekleidung')">Bekleidung</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenwäsche')">Wäsche</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenbademode')">Bademode</a>
+
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Herrenmode</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenbekleidung')">Bekleidung</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenwäsche')">Wäsche</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenbademode')">Bademode</a>
+                </div>
+            </div>
+
+            <!-- BABY & KIND -->
             <div class="nav-item">
                 👶 Baby & Kind ▾
                 <div class="dropdown-menu">
+                    <div class="dropdown-header">Kategorien</div>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Mädchenmode')">Mädchenmode</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Jungenmode')">Jungenmode</a>
+                    <a href="#" class="dropdown-item" onclick="filterByCategory('Babymode')">Babymode</a>
+                    
+                    <div class="dropdown-divider"></div>
+                    <div class="dropdown-header">Kleidung</div>
                     <a href="#" class="dropdown-item" onclick="filterByCategory('Festliche Kleider')">Festliche Kleider</a>
                     <a href="#" class="dropdown-item" onclick="filterByCategory('Langarmkleider')">Langarmkleider</a>
                     <a href="#" class="dropdown-item" onclick="filterByCategory('Sommerkleider')">Sommerkleider</a>
@@ -447,32 +530,15 @@
                 </div>
             </div>
 
-            <div class="nav-item">
-                🍳 Küche & Haushalt ▾
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Küchengeräte')">Küchengeräte</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Geschirr')">Geschirr & Deko</a>
-                </div>
-            </div>
-
-            <div class="nav-item">
-                👗 Mode ▾
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Damenbekleidung')">Damenbekleidung</a>
-                    <a href="#" class="dropdown-item" onclick="filterByCategory('Herrenbekleidung')">Herrenbekleidung</a>
-                </div>
-            </div>
-
             <div class="nav-item" onclick="filterByCategory('Multimedia')">💻 Multimedia</div>
             <div class="nav-item" onclick="filterByCategory('Sport')">⚽ Sport</div>
-            <div class="nav-item" onclick="filterByCategory('Wohnen')">🛋️ Wohnen & Einrichten</div>
         </div>
     </nav>
 
     <div class="hero">
         <div class="hero-card">
             <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem;">Willkommen im Elif Store</h1>
-            <p style="color: #94a3b8;">Ausgewählte Trends für Kinder, Küche, Mode & mehr.</p>
+            <p style="color: #94a3b8;">Ausgewählte Trends für Wohnen, Küche, Mode, Baby & Kind.</p>
         </div>
     </div>
 
@@ -486,6 +552,7 @@
             <div class="brand-chip">Philips</div>
             <div class="brand-chip">WMF</div>
             <div class="brand-chip">Samsung</div>
+            <div class="brand-chip">Bosch</div>
         </div>
     </div>
 
@@ -566,12 +633,16 @@
             { id: 4, name: "Strick Pullover Kuschelig", category: "Pullover", price: 29.99, image: "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?w=500" },
             { id: 5, name: "Kinder Jeans Hose", category: "Hosen", price: 22.99, image: "https://images.unsplash.com/photo-1519238263530-99bdd11df2ea?w=500" },
             
-            // Küchen- & Wohnprodukte
-            { id: 6, name: "Moderne Heißluftfritteuse 5L", category: "Küchengeräte", price: 89.99, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=500" },
-            { id: 7, name: "Keramik Teller-Set 12-teilig", category: "Geschirr", price: 49.99, image: "https://images.unsplash.com/photo-1610701596007-11502861dcfa?w=500" },
+            // Wohnen & Einrichten
+            { id: 6, name: "Verdunkelungs-Gardinen Grau", category: "Gardinen", price: 34.99, image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=500" },
+            { id: 7, name: "Komfort Schaumstoff Matratze", category: "Matratzen", price: 149.99, image: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=500" },
 
-            // Multimedia & Technik
-            { id: 8, name: "Wireless Bluetooth Kopfhörer", category: "Multimedia", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" }
+            // Küche & Haushalt
+            { id: 8, name: "Frontlader Waschmaschine A+++", category: "Waschmaschinen", price: 429.99, image: "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500" },
+            { id: 9, name: "Moderne Heißluftfritteuse 5L", category: "Küchengeräte", price: 89.99, image: "https://images.unsplash.com/photo-1585515320310-259814833e62?w=500" },
+
+            // Multimedia
+            { id: 10, name: "Wireless Bluetooth Kopfhörer", category: "Multimedia", price: 79.99, image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500" }
         ];
 
         let cart = [];
